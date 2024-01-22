@@ -67,3 +67,142 @@ h1 {
   font-size: 30px;
   margin: 12px 0;
 }
+
+/* Nav-bar START */
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: black;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  background: black;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+  color: white;
+}
+
+#navbar li a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+  content: "";
+  width: 30%;
+  height: 2px;
+  background-color: goldenrod;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+#mobile {
+  display: none;
+  align-items: center;
+}
+
+#bar {
+  width: auto;
+  height: auto;
+  font-size: 5rem;
+  margin-right: 30px;
+  color: white;
+}
+
+#close {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+#close-img {
+  height: 16px;
+  width: 16px;
+}
+
+/* Misc. Styles */
+
+#logo {
+  height: 75px;
+  width: auto;
+  margin: 0;
+}
+
+#banner {
+  margin-bottom: 15px;
+  width: 100%;
+}
+/* Nav-bar END */
+
+
+
+
+/* Media Queries */
+/* Mobiles - Max Width */
+@media (max-width: 750px) {
+  /* Nav-bar START */
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -310px;
+    height: 100vh;
+    width: 300px;
+    background: black;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  #navbar.active {
+    right: 0;
+  }
+
+  #navbar li {
+    margin-bottom: 25px;
+  }
+
+  #mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  #mobile i {
+    color: white;
+    font-size: 1.5rem;
+    padding-left: 20px;
+  }
+  #close {
+    display: block;
+  }
+  /* Nav-bar END */
+}
