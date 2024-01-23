@@ -288,3 +288,14 @@ h1 {
   }
   /* Nav-bar END */
 }
+
+/* Large Desktops */
+@media screen and (min-width: 1200px) {
+  #banner {
+    height: 10%;
+  }
+
+  .trailer-container iframe {
+    width: 800px;
+  }
+}
