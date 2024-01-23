@@ -71,10 +71,27 @@
         <!-- Navbar END -->
       </section>
       <!-- Header END -->
+
+      <!-- Trailer START -->
+      <div class="trailer-container">
+        <img src="images/tesst.jpeg" alt="banner" id="banner" />
+        <iframe
+          id="youtubeVideo"
+          src="https://www.youtube.com/embed/xaNGh-fUrrA?si=E_Qxpi6OLpmYELXA"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <button class="button-30" id="playButton" onclick="openVideo()">
+          <span>Play Trailer</span>
+        </button>
+        <div id="videoOverlay"></div>
+      </div>
+      <!-- Trailer END -->
+
     </div>
 
-
-    
     <!-- SCRIPTS -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -98,5 +115,6 @@
       src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
       type="module"
     ></script>
+    <script src="javascript/navbar.js"></script>
   </body>
 </html>
