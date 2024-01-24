@@ -244,6 +244,34 @@ h1 {
 }
 /* TRAILER END */
 
+/* Event Carousell START */
+.carousel {
+  margin-bottom: 15px;
+}
+.events {
+  margin-top: 50px;
+  color: black;
+  background-color: #f7ecdb;
+}
+
+
+.c-item {
+  padding-left: 20%;
+  padding-right: 20%;
+  height: 500px;
+}
+
+.c-img {
+  height: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(100%);
+}
+
+/* Event Carousell END */
+
 /* Media Queries */
 /* Mobiles - Max Width */
 @media (max-width: 750px) {
@@ -287,6 +315,12 @@ h1 {
     display: block;
   }
   /* Nav-bar END */
+
+    /* Event Carousell START */
+    .c-item {
+      height: 200px;
+    }
+    /* Event Carousell END */
 }
 
 /* Large Desktops */
