@@ -272,6 +272,113 @@ h1 {
 
 /* Event Carousell END */
 
+/* CHARACTER SHOWCASE START  */
+
+/* CHARACTER SLIDE TEMPLATE */
+.slide {
+  position: relative;
+  height: 100%;
+  width: auto;
+  overflow: hidden;
+}
+
+.slide a {
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.slide a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+}
+
+.slide-description {
+  position: relative;
+  height: 42%;
+  width: 25%;
+  margin-top: -65em;
+  background-color: rgba(0, 0, 0, 0.281);
+  z-index: 3;
+  margin-left: 5%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 15px;
+  margin-bottom: 4em;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.726);
+}
+
+#raiden-img {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  top: -80em;
+}
+
+#raiden-desc {
+  background-color: rgba(119, 0, 255, 0.336);
+}
+
+#raiden-desc h1,
+#hutao-desc h1,
+#Furina-desc h1 {
+  margin-bottom: 30px;
+  color: white;
+  font-family: "Roboto Slab", serif;
+}
+
+#raiden-list,
+#hutao-list,
+#Furina-list {
+  margin-bottom: 30px;
+  padding-left: 15px;
+  color: white;
+  font-family: "Roboto Slab", serif;
+}
+
+#raiden-demo {
+  border-radius: 8px;
+}
+
+#raiden-slide .second-slide {
+  height: 1100px;
+}
+
+#raiden-showcase {
+  object-fit: cover;
+}
+
+#hutao-desc {
+  background-color: #975e5a;
+}
+
+#hutao-slide .second-slide {
+  height: 1100px;
+}
+
+#hutao-showcase {
+  object-fit: cover;
+}
+
+#Furina-desc {
+  background-color: #4460c4;
+}
+
+#Furina-slide .second-slide {
+  height: 1100px;
+}
+
+#Furina-showcase {
+  object-fit: cover;
+}
+
+/* CHARACTER SHOWCASE END */
+
 /* Media Queries */
 /* Mobiles - Max Width */
 @media (max-width: 750px) {
@@ -321,6 +428,26 @@ h1 {
       height: 200px;
     }
     /* Event Carousell END */
+
+
+    /* CHARACTER SHOWCASE START */
+  .events {
+    font-size: 30px;
+  }
+  .character-title {
+    font-size: 30px;
+  }
+
+  .slide-description {
+    position: relative;
+    width: 80%;
+  }
+
+  .character-showcase-title {
+    font-size: 15px;
+  }
+  /* CHARACTER SHOWCASE END */
+  
 }
 
 /* Large Desktops */
