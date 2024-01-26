@@ -254,7 +254,6 @@ h1 {
   background-color: #f7ecdb;
 }
 
-
 .c-item {
   padding-left: 20%;
   padding-right: 20%;
@@ -379,6 +378,115 @@ h1 {
 
 /* CHARACTER SHOWCASE END */
 
+/* FOOTER START */
+.footer {
+  background-color: black;
+  padding: 70px 0;
+}
+
+.footer .footer-container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.footer-container .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: white;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: white;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul li:not(last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  color: white;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: goldenrod;
+  padding-left: 8px;
+}
+
+.footer-col .social-links a {
+  font-size: 40px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: black;
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 47px;
+  border-radius: 50%;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: goldenrod;
+  background-color: black;
+}
+
+@media screen and (max-width: 750px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 574) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+/* FOOTER END */
+
+/*COPYRIGHT START */
+.copyright {
+  text-align: center;
+  background: black;
+  color: white;
+  margin: 0;
+}
+/*COPYRIGHT END */
+
 /* Media Queries */
 /* Mobiles - Max Width */
 @media (max-width: 750px) {
@@ -423,14 +531,13 @@ h1 {
   }
   /* Nav-bar END */
 
-    /* Event Carousell START */
-    .c-item {
-      height: 200px;
-    }
-    /* Event Carousell END */
+  /* Event Carousell START */
+  .c-item {
+    height: 200px;
+  }
+  /* Event Carousell END */
 
-
-    /* CHARACTER SHOWCASE START */
+  /* CHARACTER SHOWCASE START */
   .events {
     font-size: 30px;
   }
@@ -447,7 +554,6 @@ h1 {
     font-size: 15px;
   }
   /* CHARACTER SHOWCASE END */
-  
 }
 
 /* Large Desktops */
