@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Marcellus+SC"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Genshin Impact</title>
+  </head>
+
+  <body class="login">
+    <div class="logcontainer" id="logcontainer">
+      <div class="form-container sign-up">
+        <form id="signup-form">
+          <h1>Create Account</h1>
+          <input id="create_name" type="text" placeholder="Name" />
+          <input id="create_email" type="email" placeholder="Email" />
+          <input id="create_password" type="password" placeholder="Password" />
+          <button type ="submit" id="register-btn"><a>Sign Up</a></button>
+        </form>
+      </div>
+      <div class="form-container sign-in">
+        <form>
+          <h1>Sign In</h1>
+          <input id="login_email" type="email" placeholder="Email" />
+          <input id="login_password" type="password" placeholder="Password" />
+          <a href="#">Forget Your Password?</a>
+          <button id="login-btn"><a>Sign In</a></button>
+        </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Welcome!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button class="hidden" id="login">Sign In</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button class="hidden" id="register">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAVA SCRIPT START -->
+    <script src="javascript\login.js"></script>
+    <!-- JAVA SCRIPT END -->
+  </body>
+</html>
