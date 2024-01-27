@@ -690,6 +690,194 @@ button {
 
 /* LOG IN / SIGN UP PAGE END */
 
+/* PRODUCT PAGE START */
+.product-body {
+  background-image: none;
+  background-color: white;
+}
+.container {
+  font-family: "Roboto Slab";
+  width: 1000px;
+  margin-top: 84px;
+  transition: 0.5s;
+  margin: 90px auto;
+}
+
+.container h1 {
+  padding-left: 60px;
+  color: black;
+  text-align: center;
+}
+.container header {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  margin-top: 50px;
+}
+.container header .shopping {
+  position: relative;
+  text-align: right;
+}
+.container header .shopping i {
+  /* shopping bag icon */
+  color: black;
+  font-size: 45px;
+  position: relative;
+  left: -40px;
+}
+.container header .shopping span {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  top: 50px;
+  padding: 3px 10px;
+  border-radius: 30px;
+  left: -27px;
+  height: 25px;
+}
+.container .list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+  margin-top: 50px;
+}
+.container .list .item {
+  /* Product Cards */
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #da8c43;
+  padding: 20px;
+  box-shadow: 0 10px 10px #757676;
+  letter-spacing: 1px;
+}
+.container .list .item img {
+  width: 90%;
+  height: 250px;
+  object-fit: cover;
+}
+.container .list .item .title {
+  font-weight: 600;
+}
+.container .list .item .price {
+  margin: 10px;
+}
+.container .list .item button {
+  background-color: #1c1f25;
+  border-radius: 20px;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.container .list .item button:hover {
+  background-color: goldenrod;
+}
+
+.card {
+  font-family: "Roboto Slab";
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 500px;
+  background-color: white;
+  height: 100vh;
+  transition: 0.5s;
+}
+.active .card {
+  left: calc(100% - 500px);
+}
+.active .container {
+  transform: translateX(-200px);
+}
+.card h1 {
+  text-align: center;
+  color: black;
+  font-weight: 100;
+  margin: 0;
+  padding: 0 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.card .cart-sub {
+  border-bottom: 1px solid black;
+  margin-left: 20px;
+  font-size: 15px;
+}
+.card .checkOut {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.card .checkOut div {
+  background-color: #e8bc0e;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card .checkOut div:nth-child(2) {
+  background-color: #1c1f25;
+  color: #fff;
+}
+.listCard li {
+  display: grid;
+  grid-template-columns: 100px repeat(3, 1fr);
+  color: black;
+  row-gap: 10px;
+}
+.listCard li div {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.listCard li img {
+  width: 90%;
+}
+.listCard li button {
+  width: 50px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px black solid;
+}
+.listCard .count {
+  margin: 0 10px;
+}
+@media (max-width: 750px) {
+  .container {
+    width: 500px;
+    margin-top: 84px;
+    transition: 0.5s;
+    margin: 90px auto;
+  }
+
+  .container .list {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+  }
+
+  .container .list .item img {
+    width: 90%;
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+/* PRODUCT PAGE END */
+
 /* Media Queries */
 /* Mobiles - Max Width */
 @media (max-width: 750px) {
