@@ -878,6 +878,90 @@ button {
 
 /* PRODUCT PAGE END */
 
+
+/* FREE REWARD START */
+.app {
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 100px;
+  border-radius: 10px;
+  padding: 30px;
+  border: 1px solid black;
+}
+
+.app h1 {
+  font-size: 25px;
+  color: #36395a;
+  font-weight: 600;
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}
+
+.app h2 {
+  text-align: center;
+  font-size: 20px;
+  color: #36395a;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+
+.quiz {
+  padding: 20px 0;
+}
+
+.quiz h2 {
+  font-size: 18px;
+  color: black;
+  font-weight: 600;
+}
+
+.quiz .btn {
+  background: white;
+  color: black;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quiz .btn:hover:not([disabled]) {
+  background: black;
+  color: white;
+}
+
+.quiz .btn:disabled {
+  cursor: no-drop;
+}
+
+.quiz #next-btn {
+  background: black;
+  color: white;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+}
+
+.quiz .correct {
+  background: greenyellow;
+}
+
+.quiz .incorrect {
+  background: lightcoral;
+}
+
+/*FREE REWARD END */
+
 /* Media Queries */
 /* Mobiles - Max Width */
 @media (max-width: 750px) {
