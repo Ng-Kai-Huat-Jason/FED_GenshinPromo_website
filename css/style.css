@@ -501,6 +501,14 @@ h1 {
   font-family: "Roboto Slab";
 }
 
+.login #myVideo {
+  position: fixed;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
 .logcontainer {
   background-color: #fff;
   border-radius: 10px;
@@ -701,6 +709,20 @@ button {
   margin-top: 84px;
   transition: 0.5s;
   margin: 90px auto;
+}
+
+.container #acc_name{
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+.container #acc_tier{
+  display: inline-block;
+  padding-left:30px;
+}
+
+.container .acc_details{
+  border-bottom:3px solid black;
 }
 
 .container h1 {
