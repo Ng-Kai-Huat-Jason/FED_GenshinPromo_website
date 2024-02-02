@@ -35,6 +35,60 @@ const questions = [
       { text: "10", correct: false },
     ],
   },
+  {
+    question: "Who is the archon of Mondstadt?",
+    answers: [
+      { text: "Venti", correct: true },
+      { text: "Diluc", correct: false },
+      { text: "Bird Boy", correct: false },
+      { text: "Kaeya", correct: false },
+    ],
+  },
+  {
+    question: "Who is the archon of Liyue?",
+    answers: [
+      { text: "Zhong Li", correct: true },
+      { text: "Qiqi", correct: false },
+      { text: "Xiao", correct: false },
+      { text: "Ning Guang", correct: false },
+    ],
+  },
+  {
+    question: "Who is Makaoto (Baal)?",
+    answers: [
+      { text: "Another persona of Raiden Shogun", correct: false },
+      { text: "Previous Ruler of Inazuma", correct: false },
+      { text: "Ei's Mother", correct: false },
+      { text: "Original Archon of Inazuma", correct: true },
+    ],
+  },
+  {
+    question: "How did the traveler arrived to Teyvat?",
+    answers: [
+      { text: "They got truck kuned", correct: false },
+      { text: "The Unknown God sent them there", correct: true },
+      { text: "Born there", correct: false },
+      { text: "Time Travelled", correct: false },
+    ],
+  },
+  {
+    question: "What is Amber the champion of in Mondstadt?",
+    answers: [
+      { text: "Fishing", correct: false },
+      { text: "Gliding", correct: true },
+      { text: "Singing", correct: false },
+      { text: "Drinking", correct: false },
+    ],
+  },
+  {
+    question: "What is Diluc taller then Kaeya?",
+    answers: [
+      { text: "Yes", correct: false },
+      { text: "No", correct: true },
+      { text: "Same", correct: false },
+      { text: "Bleh", correct: false },
+    ],
+  },
 ];
 
 const questionElement = document.getElementById("question");
@@ -73,6 +127,17 @@ function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
+  
+  // Shuffle the array of questions
+  const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  
+  // Take the first 5 questions
+  const selectedQuestions = shuffledQuestions.slice(0, 5);
+
+  // Set the questions array to the selected questions
+  questions.length = 0;
+  questions.push(...selectedQuestions);
+
   showQuestion();
 }
 
