@@ -57,14 +57,14 @@ let products = [
     id: 3,
     name: "Ayaka Figurine",
     image: "../images/product3.webp",
-    price: 34.5,
+    price: 150.45,
   },
 
   {
     id: 4,
     name: "Klee Mini Figure",
     image: "../images/product4.webp",
-    price: 29.5,
+    price: 85.3,
   },
 
   {
@@ -78,7 +78,7 @@ let products = [
     id: 6,
     name: "Amber Doll Plush",
     image: "../images/product6.jpg",
-    price: 12.35,
+    price: 15.50,
   },
 ];
 let listCards = [];
@@ -159,33 +159,37 @@ const APIKEY = "659f75533ff19f5320c89e7b";
 document.getElementById("checkout-btn").addEventListener("click", function (e) {
   // Prevent default action of the button
   e.preventDefault();
+  if (listCards.length == 0) {
+    window.alert("Your cart is empty!");
+    return;
+  } else {
+    // Grab each item in the cart and send to database
+    listCards.forEach((item) => {
+      let jsondata = {
+        name: sessionStorage.getItem("name"),
+        productname: item.name,
+        quantity: item.quantity,
+        totalcost: item.price,
+      };
 
-  // Grab each item in the cart and send to database
-  listCards.forEach((item) => {
-    let jsondata = {
-      name: sessionStorage.getItem("name"),
-      productname: item.name,
-      quantity: item.quantity,
-      totalcost: item.price,
-    };
-
-    let settings = {
-      method: "POST", // POST THE DATA AKA SEND TO THE DATABASE
-      headers: {
-        "Content-Type": "application/json",
-        "x-apikey": APIKEY,
-        "Cache-Control": "no-cache",
-      },
-      body: JSON.stringify(jsondata),
-    };
-    console.log(jsondata);
-    fetch("https://assignment2fed-f162.restdb.io/rest/orders", settings)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  });
-  window.alert("Order Send!");
-  listCards = [];
-  document.getElementById("checkout-btn").innerText = 0;
+      let settings = {
+        method: "POST", // POST THE DATA AKA SEND TO THE DATABASE
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": APIKEY,
+          "Cache-Control": "no-cache",
+        },
+        body: JSON.stringify(jsondata),
+      };
+      console.log(jsondata);
+      fetch("https://assignment2fed-f162.restdb.io/rest/orders", settings)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
+    });
+    window.alert("Order Send!");
+    listCards = [];
+    document.getElementById("checkout-btn").innerText = 0;
+  }
 });
