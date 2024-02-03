@@ -1,26 +1,90 @@
-/* CHECK IF LOGGED IN */
-window.addEventListener("load", checkifloggedin);
-
+// Check if quiz is done
 var quizDone = sessionStorage.getItem("ifPlayed");
 
-function checkifloggedin() {
-  var name = sessionStorage.getItem("name");
-  if (sessionStorage.getItem("checkiflogged") == "true") {
-    document.getElementById("acc_name").textContent = "Account: " + name;
-    if (quizDone == "true") {
-      window.alert(
-        "You have done our quiz , your purchase will be discounted by 10%!"
-      );
+// Event listener for the 'load' event
+window.addEventListener("load", function () {
+  checkifloggedin();
+
+  // Function to check if logged in
+  function checkifloggedin() {
+    var name = sessionStorage.getItem("name");
+
+    if (sessionStorage.getItem("checkiflogged") == "true") {
+      document.getElementById("acc_name").textContent = "Account: " + name;
+      getMemberTier();
+
+      if (quizDone == "true") {
+        window.alert(
+          "You have done our quiz, your purchase will be discounted by 10%!"
+        );
+      } else {
+        window.alert(
+          "You have not done our quiz located at Free Reward, please do so to get a 10% discount on your purchase!"
+        );
+      }
+
+      // Call getMemberTier inside the callback of the second then block
     } else {
-      window.alert(
-        "You have not done our quiz located at Free Reward, please do so to get a 10% discount on your purchase!"
-      );
+      makeUserGuest();
     }
-  } else {
+  }
+
+  // Function to make user a guest
+  function makeUserGuest() {
+    console.log("Not Logged in, making user a guest");
     document.getElementById("acc_name").textContent = "Account: Guest";
+    document.getElementById("acc_tier").textContent = "No Tier";
     window.alert("You are a guest user. Please login to make purchases!");
   }
-}
+
+  // Function to get member tier
+  function getMemberTier() {
+    let email = sessionStorage.getItem("email");
+
+    fetch(
+      `https://assignment2fed-f162.restdb.io/rest/tiersystem?q={"email":"${email}"}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "x-apikey": APIKEY,
+          "Cache-Control": "no-cache",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((response) => {
+        if (response.length > 0) {
+          console.log(response);
+
+          var memberid = response[0]._id; // THIS GRABS THE ID
+          sessionStorage.setItem("id", memberid);
+
+          var membertier = response[0].tier; // THIS GRABS THE TIER
+          sessionStorage.setItem("tier", membertier);
+          // Displays tier and discounts
+          if (membertier == "Bronze") {
+            document.getElementById("acc_tier").textContent =
+              "Tier: " + membertier + " (No Discount)";
+          } else if (membertier == "Silver") {
+            document.getElementById("acc_tier").textContent =
+              "Tier: " + membertier + " ($5 Discount)";
+          } else if (membertier == "Gold") {
+            document.getElementById("acc_tier").textContent =
+              "Tier: " + membertier + " ($10 Discount)";
+          }
+
+          var memberpurchased = response[0].totalpurchases; // THIS GRABS THEIR TOTAL PURCHASES
+          sessionStorage.setItem("totalpurchases", memberpurchased);
+        } else {
+          console.log("No Tier as Guest is Not Logged In");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+});
 
 /* PRODUCT PAGE */
 let openShopping = document.querySelector(".shopping");
@@ -39,6 +103,7 @@ closeShopping.addEventListener("click", () => {
 });
 
 let products = [
+  // Array of products
   {
     id: 1,
     name: "Slime Plush Set",
@@ -78,7 +143,7 @@ let products = [
     id: 6,
     name: "Amber Doll Plush",
     image: "../images/product6.jpg",
-    price: 15.50,
+    price: 15.5,
   },
 ];
 let listCards = [];
@@ -108,6 +173,7 @@ function addToCard(key) {
   reloadCard();
 }
 function reloadCard() {
+  // Refreshs the cart
   listCard.innerHTML = "";
   let count = 0;
   let totalPrice = 0;
@@ -133,16 +199,30 @@ function reloadCard() {
     }
   });
 
-  if (quizDone == "true") {
-    totalPrice = totalPrice * 0.9;
-    total.innerHTML = "Total: $" + totalPrice.toLocaleString();
-    quantity.innerText = count;
-  } else {
-    total.innerText = "Total: $" + totalPrice.toLocaleString();
-    quantity.innerText = count;
+  // CALCULATE TOTAL PRICE BASED ON TIER AND QUIZ COMPLETION
+  let tier = sessionStorage.getItem("tier");
+
+  // Deduct tier-specific amounts
+  switch (tier) {
+    case "Gold":
+      totalPrice -= 10;
+      break;
+    case "Silver":
+      totalPrice -= 5;
+      break;
   }
+
+  // Apply 10% discount for quiz completion
+  if (quizDone === "true") {
+    totalPrice *= 0.9;
+  }
+
+  // Display total and quantity
+  total.innerHTML = "Total: $" + totalPrice.toFixed(2);
+  quantity.innerText = count;
 }
 
+// Allow changing quantity of items in cart
 function changeQuantity(key, quantity) {
   if (quantity == 0) {
     delete listCards[key];
@@ -153,7 +233,7 @@ function changeQuantity(key, quantity) {
   reloadCard();
 }
 
-/* SEND CART TO DATABASE */
+/* CHECKOUT FUNCTION */
 const APIKEY = "659f75533ff19f5320c89e7b";
 
 document.getElementById("checkout-btn").addEventListener("click", function (e) {
@@ -163,7 +243,7 @@ document.getElementById("checkout-btn").addEventListener("click", function (e) {
     window.alert("Your cart is empty!");
     return;
   } else {
-    // Grab each item in the cart and send to database
+    // Grab each item in the cart and send to database with name of customer
     listCards.forEach((item) => {
       let jsondata = {
         name: sessionStorage.getItem("name"),
@@ -188,8 +268,75 @@ document.getElementById("checkout-btn").addEventListener("click", function (e) {
           console.log(data);
         });
     });
-    window.alert("Order Send!");
+    window.alert("Order Send!"); // Make sure the user knows the order has been sent
     listCards = [];
-    document.getElementById("checkout-btn").innerText = 0;
+    reloadCard();
+    UpdateMember();
+    document.getElementById("checkout-btn").innerText = "Total: $" + 0;
   }
 });
+
+// Update member tier and their total purchases
+function UpdateMember() {
+  let email = sessionStorage.getItem("email"); // GRABS NAME FROM SESSION STORAGE
+
+  let totalpurchased = sessionStorage.getItem("totalpurchases"); // GRABS total purchases from getMemberID()
+  totalpurchased = parseInt(totalpurchased) + 1; // INCREASES THE TOTAL PURCHASES BY 1
+  console.log(totalpurchased); // LOG TO CHECK
+
+  let id = sessionStorage.getItem("id"); // GRABS ID FROM getMemberID()
+
+  let membertier = sessionStorage.getItem("tier"); // GRABS TIER FROM getMemberID()
+
+  // Changes tier based on total purchased and current tier
+  if (totalpurchased >= 10 && membertier == "Silver") {
+    membertier = "Gold";
+  } else if (totalpurchased >= 5 && membertier == "Bronze") {
+    membertier = "Silver";
+  }
+
+  let jsondata = {
+    email: email,
+    tier: membertier,
+    totalpurchases: totalpurchased,
+  };
+
+  // SETS THE TIER AND TOTAL PURCHASES TO SESSION STORAGE SO THAT IF USERS KEEP CHECKING OUT IT WILL KEEP UPDATING
+  sessionStorage.setItem("tier", membertier); // SETS THE TIER TO SESSION STORAGE
+  // Displays tier and discounts
+  if (membertier == "Bronze") {
+    document.getElementById("acc_tier").textContent =
+      "Tier: " + membertier + " (No Discount)";
+  } else if (membertier == "Silver") {
+    document.getElementById("acc_tier").textContent =
+      "Tier: " + membertier + " ($5 Discount)";
+  } else if (membertier == "Gold") {
+    document.getElementById("acc_tier").textContent =
+      "Tier: " + membertier + " ($10 Discount)";
+  }
+  sessionStorage.setItem("totalpurchases", totalpurchased); // SETS THE TOTAL PURCHASES TO SESSION STORAGE
+
+  console.log(id); // LOG TO CHECK
+  console.log(jsondata); // LOG TO CHECK
+
+  fetch(`https://assignment2fed-f162.restdb.io/rest/tiersystem/${id}`, {
+    // CHANGE TO YOUR URL
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": APIKEY,
+      "Cache-Control": "no-cache",
+    },
+    body: JSON.stringify(jsondata),
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log("Member updated successfully:", response);
+    })
+    .catch((error) => {
+      console.error("Error updating member:", error);
+      window.alert(
+        "Error updating member. Please check the console for details."
+      );
+    });
+}
