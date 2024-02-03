@@ -13,7 +13,7 @@ loginBtn.addEventListener("click", () => {
   logcontainer.classList.remove("active");
 });
 
-/* SEND SIGN UP DATA TO DATABASE */
+/* SEND SIGN UP FUNCTION*/
 document.addEventListener("DOMContentLoaded", function () {
   const APIKEY = "659f75533ff19f5320c89e7b"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
 
@@ -40,9 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return false;
       }
 
-      createAcc();
+      createAcc(); // CALL THE FUNCTION TO CREATE ACCOUNT
 
-      //CHECK FOR UNIQUE EMAIL
       function createAcc() {
         fetch(
           `https://assignment2fed-f162.restdb.io/rest/accounts?q={"email":"${Email}"}`,
@@ -59,9 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
           .then((response) => {
             console.log(response);
             if (response.length > 0) {
+              // CHECKS FOR UNIQUE EMAIL
               window.alert("Email already exists!");
               return false;
             } else {
+              // IF EMAIL IS UNIQUE, CREATE ACCOUNT
               //CREATE OUR AJAX SETTINGS
               let settings = {
                 method: "POST", // POST THE DATA AKA SEND TO THE DATABASE
@@ -86,9 +87,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((response) => response.json())
                 .then((data) => {
                   console.log(data);
+                  createtier(); // CALL THE FUNCTION TO CREATE TIER (NEW USERS SET TIER TO BRONZE BY DEFAULT)
                   window.alert("Account created successfully!");
                 });
             }
+          });
+      }
+
+      // Create a tier for the user in the tiersystem database
+      function createtier() {
+        let jsondata = {
+          email: Email,
+          tier: "Bronze",
+          totalpurchases: 0,
+        };
+        let settings = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": APIKEY,
+            "Cache-Control": "no-cache",
+          },
+          body: JSON.stringify(jsondata),
+        };
+        fetch("https://assignment2fed-f162.restdb.io/rest/tiersystem", settings)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
           });
       }
     });
@@ -96,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* LOGIN FUNCTION */
   document.getElementById("login-btn").addEventListener("click", function (e) {
     var name = "";
+    var email = ""
     var checkiflogged = false;
     // Prevent default action of the button
     e.preventDefault();
@@ -104,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let Password = document.getElementById("login_password").value;
 
     // Uses input to check if email and password matches
+    // if so then it will log in and grab their details
     fetch(
       `https://assignment2fed-f162.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
       {
@@ -119,19 +146,27 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => {
         console.log(response);
         if (response.length > 0) {
+          console.log(response);
+
           // Creates a global name variable to track account name
           name = response[0].name;
           sessionStorage.setItem("name", name);
+
+          //Creates a global email variable to track account email
+          email = response[0].email;
+          sessionStorage.setItem("email", email);
 
           // Creates a global checkiflogged variable to track if user is logged in
           checkiflogged = true;
           sessionStorage.setItem("checkiflogged", checkiflogged);
 
           window.alert("Login successful!");
-          window.location.href = "index.html";
+          window.location.href = "index.html"; // Sends them to homepage
         } else {
+          // If email and password do not match alert the user
           window.alert("Invalid email or password!");
         }
       });
   });
 });
+
