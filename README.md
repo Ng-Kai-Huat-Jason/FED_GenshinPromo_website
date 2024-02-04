@@ -49,25 +49,45 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 ## Testing
    WARNING PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS
+   TEST ACCOUNT email is test@gmail.com and password is 111.
     
     Navigation Testing
-    -------------------
+    -----------------------------------
     1. Make sure navigation and footer links work on all pages and in mobile view.
     2. Make sure Product Page and Free Reward Page only allow "Logged In" Users to use the functions. ( Can't check out and Quiz is disabled )
     
-
     Account Page Testing
-    -------------------
+    -----------------------------------
     1. Test Account Creation, Make sure it detects empty fields , existing emails or missing @ sign for email. If it succeed in creating , check Account Collection and Tiersystem Collection for new data.
     2. Check for Unique Email , test this by creating an account with test@gmail.com (already exists in the database) , it will alert the user via a window alert.
     3. For Logging In , Make sure users can only log in with existing emails and its correct password. After logging in, Users will directed to the Home Page
 
     Home Page Testing
-    -------------------
+    -----------------------------------
     1. When Home Page opens, Lottie Animation plays
     2. Make sure Event Carousel works and the buttons lead to the correct sections of the Event Details.
+    3. For Character Showcase , Make sure the abilities name change the video to their respective skills.
+    4. For Mobile View , Carousel will work but buttons will be removed.
     
+    Event Details Page Testing
+    -----------------------------------
+    1. Make sure videos work.
+    2. For Mobile View , All Infoboxes will shift to column view for easier viewing.
+    
+    Product Page Testing
+    -----------------------------------
+    1. If Tester is not logged in , Account name will be set to Guest and Have No Tier. If not , the Account Name will be the name of the account and their tier
+    2. Make sure if it's Guest Account , Add to Cart and Check Out Button doesn't work.
+    3. When Logged In , Add to Cart Button works and if there are items in the cart and User checks out, Window alert will be send and the Order collection and Tiersystem collection will be updated.
+    4. If User has done the Quiz or is Silver or Gold make sure discount is applied ( can be tested via forcefully changing the tier in the database ) .
+    5. If User has not done Quiz and is logged in , the alert will ask the to do for a discount. 
+    6. Tier system works via the total checkout counter in the Tiersystem collection in the database.
 
+    Free Reward Page Testing (Quiz)
+    -----------------------------------
+    1. If User is not logged in , Quiz is disabled and alert will be shown.
+    2. If User is logged in , Quiz will be enable and questions will be shown.
+    3. After Quiz Completion , Quiz is disabled.
 
 
 ## Credits
