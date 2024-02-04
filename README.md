@@ -4,16 +4,22 @@ This website is to promote and provide "Genshin Impact" Products to customers.
 ## Design Process
 This website is designed to provide new and old users a way to get "Genshin Impact" products in a easy manner without any complicated process while also giving a free discount after completing a short quiz.
 
-From a company's standpoint , We want to achieve user trust and satisfactory by
-- Making sure products are in good quality
-- Providing good customer support
-- Making sure we provide latest products and deals for loyal customers
+## Company Objectives:
 
-From a user standpoint , 
-- I want to be able to navigate the website with ease and without confusion
-- Get products easily and in quality
-- Get in contact with the company easily
-- If I'm interested in Genshin , I want links to their game or maybe their developers (miHoYo)
+From the company's standpoint, our primary objectives are to foster user trust and satisfaction through a commitment to:
+
+- Ensuring top-notch product quality.
+- Delivering excellent customer support.
+- Providing a continuous stream of the latest products and exclusive deals for our loyal customers.
+
+## User Experience Goals:
+
+From a user's standpoint, we aim to create an enjoyable experience by:
+
+- Ensuring a seamless and intuitive website navigation.
+- Facilitating easy access to high-quality products.
+- Offering convenient communication channels with our company.
+- Catering to specific interests, such as providing accessible links to Genshin-related content, including the game and its developers (miHoYo).
  
 
 
@@ -24,7 +30,7 @@ From a user standpoint ,
 - Feature 4: Product page to allow logged in users to order "Genshin Impact" products which will be send to a database after checkout.
 - Feature 5: Users can create and log in to the page to access checkout feature in the Product Page and also the Free Reward Page.
 - Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
-- Feature 7: When Users create an account, they will automatically recieve a tier(Bronze) and get increase their tier by the number of checkouts they do , 5 for Silver , 10 for Gold. This will give them a discount of 5 dollars and 10 dollars off respectively.
+- Feature 7: Users start at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
 
 
 ## Technologies Used
@@ -42,16 +48,33 @@ From a user standpoint ,
 
 
 ## Testing
+   WARNING PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS
+    
+    Navigation Testing
+    -------------------
+    1. Make sure navigation and footer links work on all pages and in mobile view.
+    2. Make sure Product Page and Free Reward Page only allow "Logged In" Users to use the functions. ( Can't check out and Quiz is disabled )
+    
 
-1. Make sure navigation bars works on every page and make sure the mobile version works as well.
+    Account Page Testing
+    -------------------
+    1. Test Account Creation, Make sure it detects empty fields , existing emails or missing @ sign for email. If it succeed in creating , check Account Collection and Tiersystem Collection for new data.
+    2. Check for Unique Email , test this by creating an account with test@gmail.com (already exists in the database) , it will alert the user via a window alert.
+    3. For Logging In , Make sure users can only log in with existing emails and its correct password. After logging in, Users will directed to the Home Page
 
+    Home Page Testing
+    -------------------
+    1. When Home Page opens, Lottie Animation plays
+    2. Make sure Event Carousel works and the buttons lead to the correct sections of the Event Details.
+    
 
 
 
 ## Credits
-ALL RIGHTS BELOW TO THEIR RESPECTIVE OWNERS!!
+ALL RIGHTS BELONG TO THEIR RESPECTIVE OWNERS!!!
 
 ### Media
+- Lottie Animation Inspired from Genshin made by [Ng Kai Huat Jason](https://drive.google.com/drive/folders/1RM59c7QCcgw8IQ_r_XPIYJ7fr7lUE8Bt?usp=sharing)
 - The pictures of the products is taken from [Amazon SG](https://www.amazon.sg/ref=nav_logo)
 - The "Genshin Impact " Logo is taken from [CityPNG](https://www.citypng.com/photo/5336/hd-white-genshin-impact-game-logo-png)
 - The "Genshin Impact" Trailer is taken from their Offical [Genshin Impact](https://www.youtube.com/watch?v=Z1SK-G1B6rY) YouTube Channel 
