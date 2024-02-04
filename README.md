@@ -48,7 +48,7 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 
 ## Testing
-   WARNING PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS
+   WARNING PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
    TEST ACCOUNT email is test@gmail.com and password is 111.
     
     Navigation Testing
