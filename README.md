@@ -20,9 +20,11 @@ From a user standpoint ,
 ## Features
 - Feature 1: Provided users with a Trailer of "Genshin Impact" latest event and showcase some characters.
 - Feature 2: Provided users with hyperlinks to "Genshin Impact" socials in the footer.
-- Feature 3: Product page to allow logged in users to order "Genshin Impact" products which will be send to a database after checkout.
-- Feature 4: Users can create and log in to the page to access checkout feature in the Product Page and also the Free Reward Page.
-- Feature 5: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
+- Feature 3: Event details page to show the events for that update.
+- Feature 4: Product page to allow logged in users to order "Genshin Impact" products which will be send to a database after checkout.
+- Feature 5: Users can create and log in to the page to access checkout feature in the Product Page and also the Free Reward Page.
+- Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
+- Feature 7: When Users create an account, they will automatically recieve a tier(Bronze) and get increase their tier by the number of checkouts they do , 5 for Silver , 10 for Gold. This will give them a discount of 5 dollars and 10 dollars off respectively.
 
 
 ## Technologies Used
@@ -34,6 +36,8 @@ From a user standpoint ,
     - This project uses Javascript to code the functionality of the website such as the product page and added of animations.
 - [CSS](https://en.wikipedia.org/wiki/CSS)
     - This project uses CSS to style the website aesthetics.
+- [RestDB](https://restdb.io/)
+    - This project uses RestDB.io database to store information for the account , tier and product system.
 
 
 
@@ -53,6 +57,8 @@ ALL RIGHTS BELOW TO THEIR RESPECTIVE OWNERS!!
 - The "Genshin Impact" Trailer is taken from their Offical [Genshin Impact](https://www.youtube.com/watch?v=Z1SK-G1B6rY) YouTube Channel 
 - The icons for socials is from [Boxicon](https://boxicons.com/)
 - The Banner Picture is from [EuroGamer](https://www.eurogamer.net/genshin-impact-4-3-release-date-time-banner-schedule-events-9326)
+- The character gameplay gifs are taken from [Genshin impact Fandom](https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki)
+- The animated backgrounds for the character showcase are from [Moewalls](https://moewalls.com/) , [Huraka_5281](https://www.youtube.com/watch?v=AbFKDdtWfn8)
 
 ### Acknowledgements
 Below will be the links to where Me and My Partner received inspiration from :
