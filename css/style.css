@@ -501,6 +501,13 @@ h1 {
   font-family: "Roboto Slab";
 }
 
+.companylogo{
+  width: 250px;
+  height: 100px;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
 .login #myVideo {
   position: fixed;
   right: 0;
