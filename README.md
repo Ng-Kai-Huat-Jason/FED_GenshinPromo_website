@@ -1,36 +1,35 @@
 # GenshinPromo
-GenshinPromo is a collaborated work between MiHoYo and our company to promote Genshin Impact's Merch and Game to new players and current players.
+GenshinPromo is a collaborative work between MiHoYo and our company to promote official "Genshin Impact" branded merchandise as well as the "Genshin Impact" videogame to potential returning players and new players.
  
 ## Design Process
-This website is designed to provide new and old players a way to get "Genshin Impact" products in a easy manner without any complicated process while also giving a free discount after completing a short quiz.
+This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop
 
 ## Company Objectives:
 
 From the company's standpoint, our primary objectives are to foster user trust and satisfaction through a commitment to:
 
-- Ensuring top-notch product quality.
-- Delivering excellent customer support.
-- Providing a continuous stream of the latest products and exclusive deals for our loyal customers.
+- Ensure top-notch product quality.
+- Deliver excellent customer support.
+- Provide a continuous stream of the latest products and exclusive deals for our loyal customers.
 
 ## User Experience Goals:
 
 From a user's standpoint, we aim to create an enjoyable experience by:
 
 - Ensuring a seamless and intuitive website navigation.
-- Facilitating easy access to high-quality products.
-- Offering convenient communication channels with our company.
-- Catering to specific interests, such as providing accessible links to Genshin-related content, including the game and its developers (miHoYo).
- 
+- Facilitating easy access channels to high-quality products.
+- Offering convenient and concise communication channels with our company.
+- Catering to specific interests, such as providing accessible links to Genshin-related content, including the game and its official platforms.
 
 
 ## Features
-- Feature 1: Provided players with a Trailer of "Genshin Impact" latest event and showcase some characters.
-- Feature 2: Provided players with hyperlinks to "Genshin Impact" socials in the footer.
-- Feature 3: Event details page to show the events for that update.
-- Feature 4: Product page to allow logged in players to order "Genshin Impact" products which will be send to a database after checkout.
-- Feature 5: players can create and log in to the page to access checkout feature in the Product Page and also the Free Reward Page.
-- Feature 6: Free Reward Page contains a quiz which provides a discount to logged in players after completion.
-- Feature 7: players start at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
+- Feature 1: Provides players with a trailer of latest upcoming event for "Genshin Impact" and showcases the featured in-game characters.
+- Feature 2: Provides players with hyperlinks to "Genshin Impact" social media platforms in the footer.
+- Feature 3: Event details page to showcase upcoming in-game events.
+- Feature 4: Product page to allow logged in users to order "Genshin Impact" products which will be send to a database after checkout.
+- Feature 5: Users are able to create and log in to the page, thus able to access a checkout feature in the Product Page and the Free Reward Page.
+- Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
+- Feature 7: Users are initiated at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 "orders" in total. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
 
 
 ## Technologies Used
@@ -48,7 +47,7 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 
 ## Testing
-   WARNING PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
+   DISCLAIMER: PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
    TEST ACCOUNT email is test@gmail.com and password is 111 or testers can make their own.
     
     Navigation Testing
@@ -91,7 +90,7 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 
 ## Credits
-ALL RIGHTS BELONG TO THEIR RESPECTIVE OWNERS!!!
+All rights belong to their respecitve owners, all events stipulated in the website are fictional and have no association with the actual Genshin Impact game created by Mihoyo.
 
 ### Media
 - Lottie Animation Inspired from Genshin made by [Ng Kai Huat Jason](https://drive.google.com/drive/folders/1RM59c7QCcgw8IQ_r_XPIYJ7fr7lUE8Bt?usp=sharing)
