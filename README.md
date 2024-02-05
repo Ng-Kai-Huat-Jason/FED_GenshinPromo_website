@@ -1,8 +1,8 @@
 # GenshinPromo
-This website is to promote and provide "Genshin Impact" Products to customers.
+GenshinPromo is a collaborated work between MiHoYo and our company to promote Genshin Impact's Merch and Game to new players and current players.
  
 ## Design Process
-This website is designed to provide new and old users a way to get "Genshin Impact" products in a easy manner without any complicated process while also giving a free discount after completing a short quiz.
+This website is designed to provide new and old players a way to get "Genshin Impact" products in a easy manner without any complicated process while also giving a free discount after completing a short quiz.
 
 ## Company Objectives:
 
@@ -24,13 +24,13 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 
 ## Features
-- Feature 1: Provided users with a Trailer of "Genshin Impact" latest event and showcase some characters.
-- Feature 2: Provided users with hyperlinks to "Genshin Impact" socials in the footer.
+- Feature 1: Provided players with a Trailer of "Genshin Impact" latest event and showcase some characters.
+- Feature 2: Provided players with hyperlinks to "Genshin Impact" socials in the footer.
 - Feature 3: Event details page to show the events for that update.
-- Feature 4: Product page to allow logged in users to order "Genshin Impact" products which will be send to a database after checkout.
-- Feature 5: Users can create and log in to the page to access checkout feature in the Product Page and also the Free Reward Page.
-- Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
-- Feature 7: Users start at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
+- Feature 4: Product page to allow logged in players to order "Genshin Impact" products which will be send to a database after checkout.
+- Feature 5: players can create and log in to the page to access checkout feature in the Product Page and also the Free Reward Page.
+- Feature 6: Free Reward Page contains a quiz which provides a discount to logged in players after completion.
+- Feature 7: players start at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
 
 
 ## Technologies Used
@@ -54,13 +54,13 @@ From a user's standpoint, we aim to create an enjoyable experience by:
     Navigation Testing
     -----------------------------------
     1. Make sure navigation and footer links work on all pages and in mobile view.
-    2. Make sure Product Page and Free Reward Page only allow "Logged In" Users to use the functions. ( Can't check out and Quiz is disabled )
+    2. Make sure Product Page and Free Reward Page only allow "Logged In" players to use the functions. ( Can't check out and Quiz is disabled )
     
     Account Page Testing
     -----------------------------------
     1. Test Account Creation, Make sure it detects empty fields , existing emails or missing @ sign for email. If it succeed in creating , check Account Collection and Tiersystem Collection for new data.
     2. Check for Unique Email , test this by creating an account with test@gmail.com (already exists in the database) , it will alert the user via a window alert.
-    3. For Logging In , Make sure users can only log in with existing emails and its correct password. After logging in, Users will directed to the Home Page
+    3. For Logging In , Make sure players can only log in with existing emails and its correct password. After logging in, players will directed to the Home Page
 
     Home Page Testing
     -----------------------------------
