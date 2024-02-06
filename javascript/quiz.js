@@ -232,7 +232,6 @@ function updateQuizDone() {
   };
 
   fetch(`https://assignment2fed-f162.restdb.io/rest/accounts/${id}`, {
-    // CHANGE TO YOUR URL
     method: "PUT",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -243,7 +242,7 @@ function updateQuizDone() {
   })
     .then((res) => res.json())
     .then((response) => {
-      console.log("Quiz done updated to yes", response);
+      console.log("Quiz done updated to Yes", response);
     })
     .catch((error) => {
       console.error("Error updating member:", error);
