@@ -31,6 +31,9 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 - Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
 - Feature 7: Users are initiated at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts in total. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
 
+## Wireframe & Video Link
+- [Wireframe Link](https://xd.adobe.com/view/fa41b681-5a3d-4264-8ca2-7ee068395d03-af12/)
+- [Video Demo]()
 
 ## Technologies Used
 - [Visual Studio Code Software](https://code.visualstudio.com/)
@@ -43,7 +46,8 @@ From a user's standpoint, we aim to create an enjoyable experience by:
     - This project uses CSS to style the website aesthetics.
 - [RestDB](https://restdb.io/)
     - This project uses RestDB.io database to store information for the account , tier and product system.
-
+- [AdobeXD](https://adobexdplatform.com/)
+    - This project uses AdobeXD for it's wireframe.
 
 
 ## Testing
