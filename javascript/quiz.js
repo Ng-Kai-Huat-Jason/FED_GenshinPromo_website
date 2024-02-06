@@ -218,21 +218,20 @@ function updateQuizDone() {
   let name = sessionStorage.getItem("name");
   let email = sessionStorage.getItem("email");
   let password = sessionStorage.getItem("password");
-  let quizdone = "Yes";
+  let quizcompleted = "Yes";
   let id = sessionStorage.getItem("id");
 
-  sessionStorage.setItem("quizdone", quizdone);
+  sessionStorage.setItem("quizdone", quizcompleted);
   console.log(sessionStorage.getItem("quizdone"));
 
-  let jsondata = {
+  let updateQuizDone = {
     name: name,
     email: email,
     password: password,
-    quizdone: quizdone,
+    quizdone: quizcompleted,
   };
 
-  console.log(id); // LOG TO CHECK
-  console.log(jsondata); // LOG TO CHECK
+  console.log(updateQuizDone); // LOG TO CHECK
 
   fetch(`https://fedassignment2-62ed.restdb.io/rest/accounts/${id}`, {
     // CHANGE TO YOUR URL
@@ -242,7 +241,7 @@ function updateQuizDone() {
       "x-apikey": APIKEY,
       "Cache-Control": "no-cache",
     },
-    body: JSON.stringify(jsondata),
+    body: JSON.stringify(updateQuizDone),
   })
     .then((res) => res.json())
     .then((response) => {
