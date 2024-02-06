@@ -218,6 +218,10 @@ function reloadCard() {
     totalPrice *= 0.9;
   }
 
+  if(totalPrice < 0) {
+    totalPrice = 0;
+  }
+  
   // Display total and quantity
   total.innerHTML = "Total: $" + totalPrice.toFixed(2);
   quantity.innerText = count;
