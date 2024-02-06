@@ -121,10 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* LOGIN FUNCTION */
   document.getElementById("login-btn").addEventListener("click", function (e) {
-    var id = ""
-    var name = "";
-    var email = ""
-    var quizdone = "";
     var checkiflogged = false;
     // Prevent default action of the button
     e.preventDefault();
@@ -151,25 +147,20 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.length > 0) {
           console.log(response);
           // Creates a global id variable to track account id
-          id = response[0]._id;
-          sessionStorage.setItem("id", id);
+          sessionStorage.setItem("id", response[0]._id);
 
           // Creates a global name variable to track account name
-          name = response[0].name;
-          sessionStorage.setItem("name", name);
+          sessionStorage.setItem("name", response[0].name);
 
           //Create a global password variable to track account password
-          password = response[0].password;
-          sessionStorage.setItem("password", password);
+          sessionStorage.setItem("password", response[0].password);
 
           //Creates a global email variable to track account email
-          email = response[0].email;
-          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("email", response[0].email);
 
           //Create a global quizdone variable to track if user has done the quiz
-          quizdone = response[0].quizdone;
-          console.log(quizdone);
-          sessionStorage.setItem("quizdone", quizdone);
+          console.log(response[0].quizdone);
+          sessionStorage.setItem("quizdone", response[0].quizdone);
 
           // Creates a global checkiflogged variable to track if user is logged in
           checkiflogged = true;
