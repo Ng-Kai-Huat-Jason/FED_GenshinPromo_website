@@ -213,7 +213,7 @@ nextButton.addEventListener("click", () => {
 });
 
 function updateQuizDone() {
-  const APIKEY = "659f75533ff19f5320c89e7b"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+  const APIKEY = "65c27ad7ef3f39e1405278d3"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
   // Update the account to show that the user has completed the quiz
   let name = sessionStorage.getItem("name");
   let email = sessionStorage.getItem("email");
@@ -231,7 +231,11 @@ function updateQuizDone() {
     quizdone: quizdone,
   };
 
-  fetch(`https://assignment2fed-f162.restdb.io/rest/accounts/${id}`, {
+  console.log(id); // LOG TO CHECK
+  console.log(jsondata); // LOG TO CHECK
+
+  fetch(`https://fedassignment2-62ed.restdb.io/rest/accounts/${id}`, {
+    // CHANGE TO YOUR URL
     method: "PUT",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -242,10 +246,10 @@ function updateQuizDone() {
   })
     .then((res) => res.json())
     .then((response) => {
-      console.log("Quiz done updated to Yes", response);
+      console.log("Quiz Done is Updated", response);
     })
     .catch((error) => {
-      console.error("Error updating member:", error);
+      console.error("Quiz Done cant update :", error);
     });
 }
 
