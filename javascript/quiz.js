@@ -97,16 +97,15 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
-var ifPlayed = false;
 
 // Check if logged in and checked if account has played before for current session
 function checker() {
   if (sessionStorage.getItem("checkiflogged") == "true") {
-    if (sessionStorage.getItem("ifPlayed") == "true") {
+    if (sessionStorage.getItem("quizdone") == "Yes") {
       window.alert("You have already played the quiz!");
       questionElement.innerHTML = "You have already played the quiz!";
       document.getElementById("account").innerHTML =
-      "Account: " + sessionStorage.getItem("name");
+        "Account: " + sessionStorage.getItem("name");
       answerButtons.style.display = "none";
       nextButton.style.display = "none";
     } else {
@@ -127,10 +126,10 @@ function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
-  
+
   // Shuffle the array of questions
   const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-  
+
   // Take the first 5 questions
   const selectedQuestions = shuffledQuestions.slice(0, 5);
 
@@ -192,12 +191,7 @@ function showScore() {
   resetState();
   questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
   nextButton.innerHTML = " Quiz Completed!";
-
-
-  ifPlayed = true;
-  sessionStorage.setItem("ifPlayed", ifPlayed);
-
-
+  updateQuizDone();
   nextButton.style.display = "block";
   nextButton.disabled = true;
   nextButton.style.cursor = "not-allowed";
@@ -215,7 +209,45 @@ function handleNextButton() {
 nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     handleNextButton();
-  } 
+  }
 });
+
+function updateQuizDone() {
+  const APIKEY = "659f75533ff19f5320c89e7b"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+  // Update the account to show that the user has completed the quiz
+  let name = sessionStorage.getItem("name");
+  let email = sessionStorage.getItem("email");
+  let password = sessionStorage.getItem("password");
+  let quizdone = "Yes";
+  let id = sessionStorage.getItem("id");
+
+  sessionStorage.setItem("quizdone", quizdone);
+  console.log(sessionStorage.getItem("quizdone"));
+
+  let jsondata = {
+    name: name,
+    email: email,
+    password: password,
+    quizdone: quizdone,
+  };
+
+  fetch(`https://assignment2fed-f162.restdb.io/rest/accounts/${id}`, {
+    // CHANGE TO YOUR URL
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": APIKEY,
+      "Cache-Control": "no-cache",
+    },
+    body: JSON.stringify(jsondata),
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log("Quiz done updated to yes", response);
+    })
+    .catch((error) => {
+      console.error("Error updating member:", error);
+    });
+}
 
 checker();
