@@ -1,5 +1,6 @@
 // Check if quiz is done
-var quizDone = sessionStorage.getItem("ifPlayed");
+var quizDone = sessionStorage.getItem("quizdone");
+console.log(quizDone);
 
 // Event listener for the 'load' event
 window.addEventListener("load", function () {
@@ -13,7 +14,7 @@ window.addEventListener("load", function () {
       document.getElementById("acc_name").textContent = "Account: " + name;
       getMemberTier();
 
-      if (quizDone == "true") {
+      if (quizDone == "Yes") {
         window.alert(
           "You have done our quiz, your purchase will be discounted by 10%!"
         );
@@ -213,7 +214,7 @@ function reloadCard() {
   }
 
   // Apply 10% discount for quiz completion
-  if (quizDone === "true") {
+  if (quizDone === "Yes") {
     totalPrice *= 0.9;
   }
 
