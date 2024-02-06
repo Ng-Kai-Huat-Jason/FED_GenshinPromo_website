@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         name: Name,
         email: Email,
         password: Password,
-        quizdone: "No",
       };
 
       //CHECK FOR EMPTY FIELDS
@@ -88,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((response) => response.json())
                 .then((data) => {
                   console.log(data);
-                  createtier(); // CALL THE FUNCTION TO CREATE TIER (NEW USERS SET TIER TO BRONZE BY DEFAULT)
+                  createtier();
+                  createQuiz(); // CALL THE FUNCTION TO CREATE TIER (NEW USERS SET TIER TO BRONZE BY DEFAULT)
                   window.alert("Account created successfully!");
                 });
             }
@@ -112,6 +112,27 @@ document.addEventListener("DOMContentLoaded", function () {
           body: JSON.stringify(createAccTier),
         };
         fetch("https://fedassignment2-62ed.restdb.io/rest/tiersystem", settings)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
+
+      function createQuiz() {
+        let createAccQuiz = {
+          email: Email,
+          quizdone: "No",
+        };
+        let settings = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": APIKEY,
+            "Cache-Control": "no-cache",
+          },
+          body: JSON.stringify(createAccQuiz),
+        };
+        fetch("https://fedassignment2-62ed.restdb.io/rest/quiz", settings)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -145,29 +166,21 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => {
         if (response.length > 0) {
           console.log(response);
-          
+
           // Creates a global id variable to track account id
           sessionStorage.setItem("id", response[0]._id);
+          console.log(sessionStorage.getItem("id"));
 
           // Creates a global name variable to track account name
           sessionStorage.setItem("name", response[0].name);
           console.log(sessionStorage.getItem("name"));
 
-          //Create a global password variable to track account password
-          sessionStorage.setItem("password", response[0].password);
-
           //Creates a global email variable to track account email
           sessionStorage.setItem("email", response[0].email);
-
-          //Create a global quizdone variable to track if user has done the quiz
-          console.log(response[0].quizdone);
-          sessionStorage.setItem("quizdone", response[0].quizdone);
 
           // Creates a global checkiflogged variable to track if user is logged in
           checkiflogged = true;
           sessionStorage.setItem("checkiflogged", checkiflogged);
-
-          
 
           window.alert("Login successful!");
           window.location.href = "index.html"; // Sends them to homepage
@@ -178,4 +191,3 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
-

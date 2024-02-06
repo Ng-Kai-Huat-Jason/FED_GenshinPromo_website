@@ -1,3 +1,4 @@
+
 const questions = [
   {
     question: "What is Hutao's gender?",
@@ -101,6 +102,7 @@ let score = 0;
 // Check if logged in and checked if account has played before for current session
 function checker() {
   if (sessionStorage.getItem("checkiflogged") == "true") {
+    GrabQuizDone();
     if (sessionStorage.getItem("quizdone") == "Yes") {
       window.alert("You have already played the quiz!");
       questionElement.innerHTML = "You have already played the quiz!";
@@ -212,30 +214,27 @@ nextButton.addEventListener("click", () => {
   }
 });
 
-function updateQuizDone() {
-  const APIKEY = "65c27ad7ef3f39e1405278d3"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
-  // Update the account to show that the user has completed the quiz
-  let name = sessionStorage.getItem("name");
-  let email = sessionStorage.getItem("email");
-  let password = sessionStorage.getItem("password");
-  let quizcompleted = "Yes";
-  let id = sessionStorage.getItem("id");
+const APIKEY = "65c27ad7ef3f39e1405278d3"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
 
-  sessionStorage.setItem("quizdone", quizcompleted);
+function updateQuizDone() {
+  // Update the account to show that the user has completed the quiz
+  let email = sessionStorage.getItem("email");
+  let id = sessionStorage.getItem("quiz_id");
+  console.log(id);
+
+  sessionStorage.setItem("quizdone", "Yes");
   console.log(sessionStorage.getItem("quizdone"));
 
   let updateQuizDone = {
-    name: name,
     email: email,
-    password: password,
-    quizdone: quizcompleted,
+    quizdone: "Yes",
   };
 
   console.log(updateQuizDone); // LOG TO CHECK
 
-  fetch(`https://fedassignment2-62ed.restdb.io/rest/accounts/${id}`, {
+  fetch(`https://fedassignment2-62ed.restdb.io/rest/quiz/${id}`, {
     // CHANGE TO YOUR URL
-    method: "PUT",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "x-apikey": APIKEY,
@@ -249,6 +248,32 @@ function updateQuizDone() {
     })
     .catch((error) => {
       console.error("Quiz Done cant update :", error);
+    });
+}
+
+function GrabQuizDone() {
+  let email = sessionStorage.getItem("email");
+  fetch(
+    `https://fedassignment2-62ed.restdb.io/rest/quiz?q={"email":"${email}"}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": APIKEY,
+        "Cache-Control": "no-cache",
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response);
+      let id = response[0]._id;
+      let quizdone = response[0].quizdone;
+      sessionStorage.setItem("quiz_id", id);
+      sessionStorage.setItem("quizdone", quizdone);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
     });
 }
 
