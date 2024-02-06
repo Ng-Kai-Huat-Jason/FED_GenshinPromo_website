@@ -29,7 +29,7 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 - Feature 4: Product page to allow logged in users to order "Genshin Impact" products which will be send to a database after checkout.
 - Feature 5: Users are able to create and log in to the page, thus able to access a checkout feature in the Product Page and the Free Reward Page.
 - Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
-- Feature 7: Users are initiated at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 "orders" in total. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
+- Feature 7: Users are initiated at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts in total. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
 
 
 ## Technologies Used
