@@ -221,6 +221,7 @@ function reloadCard() {
   // Display total and quantity
   total.innerHTML = "Total: $" + totalPrice.toFixed(2);
   quantity.innerText = count;
+  sessionStorage.setItem("totalprice", totalPrice);
 }
 
 // Allow changing quantity of items in cart
@@ -250,7 +251,7 @@ document.getElementById("checkout-btn").addEventListener("click", function (e) {
         name: sessionStorage.getItem("name"),
         productname: item.name,
         quantity: item.quantity,
-        totalcost: item.price,
+        totalcost: sessionStorage.getItem("totalprice"),
       };
 
       let settings = {
