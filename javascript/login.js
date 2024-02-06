@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", () => {
 
 /* SEND SIGN UP FUNCTION*/
 document.addEventListener("DOMContentLoaded", function () {
-  const APIKEY = "659f75533ff19f5320c89e7b"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+  const APIKEY = "65c27ad7ef3f39e1405278d3"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
 
   document
     .getElementById("register-btn")
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let Password = document.getElementById("create_password").value;
 
       // GRAB ALL THE DATA FROM THE FORM and COMBINE INTO A JSON PACKAGE
-      let jsondata = {
+      let createAccData = {
         name: Name,
         email: Email,
         password: Password,
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       function createAcc() {
         fetch(
-          `https://assignment2fed-f162.restdb.io/rest/accounts?q={"email":"${Email}"}`,
+          `https://fedassignment2-62ed.restdb.io/rest/accounts?q={"email":"${Email}"}`,
           {
             method: "GET",
             headers: {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   "x-apikey": APIKEY,
                   "Cache-Control": "no-cache",
                 },
-                body: JSON.stringify(jsondata),
+                body: JSON.stringify(createAccData),
                 beforeSend: function () {
                   // CLEAR FORM AFTER SUBMIT
                   document.getElementById("create_name").value = "";
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
               };
               fetch(
-                "https://assignment2fed-f162.restdb.io/rest/accounts",
+                "https://fedassignment2-62ed.restdb.io/rest/accounts",
                 settings
               )
                 .then((response) => response.json())
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create a tier for the user in the tiersystem database
       function createtier() {
-        let jsondata = {
+        let createAccTier = {
           email: Email,
           tier: "Bronze",
           totalpurchases: 0,
@@ -109,9 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "x-apikey": APIKEY,
             "Cache-Control": "no-cache",
           },
-          body: JSON.stringify(jsondata),
+          body: JSON.stringify(createAccTier),
         };
-        fetch("https://assignment2fed-f162.restdb.io/rest/tiersystem", settings)
+        fetch("https://fedassignment2-62ed.restdb.io/rest/tiersystem", settings)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Uses input to check if email and password matches
     // if so then it will log in and grab their details
     fetch(
-      `https://assignment2fed-f162.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
+      `https://fedassignment2-62ed.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
       {
         method: "GET",
         headers: {
@@ -143,14 +143,15 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         if (response.length > 0) {
           console.log(response);
+          
           // Creates a global id variable to track account id
           sessionStorage.setItem("id", response[0]._id);
 
           // Creates a global name variable to track account name
           sessionStorage.setItem("name", response[0].name);
+          console.log(sessionStorage.getItem("name"));
 
           //Create a global password variable to track account password
           sessionStorage.setItem("password", response[0].password);
