@@ -2,7 +2,8 @@
 GenshinPromo is a collaborative work between MiHoYo and our company to promote official "Genshin Impact" branded merchandise as well as the "Genshin Impact" videogame to potential returning players and new players.
  
 ## Design Process
-This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop
+This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop.
+
 
 ## Company Objectives:
 
@@ -49,6 +50,9 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 - [AdobeXD](https://adobexdplatform.com/)
     - This project uses AdobeXD for it's wireframe.
 
+## WorkFlow
+   As this project is done by me and my partner, we have decided to incorporated the use of branches for our work. This will allow us to check what we have done before merging it to the main branch and also    
+   prevent errors in case of multiple merges.  
 
 ## Testing
    DISCLAIMER: PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
