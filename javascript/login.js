@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", () => {
 
 /* SEND SIGN UP FUNCTION*/
 document.addEventListener("DOMContentLoaded", function () {
-  const APIKEY = "659f75533ff19f5320c89e7b"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+  const APIKEY = "65c359a4c34784f7ca1877d9"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
 
   document
     .getElementById("register-btn")
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let Password = document.getElementById("create_password").value;
 
       // GRAB ALL THE DATA FROM THE FORM and COMBINE INTO A JSON PACKAGE
-      let jsondata = {
+      let createAccData = {
         name: Name,
         email: Email,
         password: Password,
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       function createAcc() {
         fetch(
-          `https://assignment2fed-f162.restdb.io/rest/accounts?q={"email":"${Email}"}`,
+          `https://genshinpromodb-33a4.restdb.io/rest/accounts?q={"email":"${Email}"}`,
           {
             method: "GET",
             headers: {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   "x-apikey": APIKEY,
                   "Cache-Control": "no-cache",
                 },
-                body: JSON.stringify(jsondata),
+                body: JSON.stringify(createAccData),
                 beforeSend: function () {
                   // CLEAR FORM AFTER SUBMIT
                   document.getElementById("create_name").value = "";
@@ -81,13 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
               };
               fetch(
-                "https://assignment2fed-f162.restdb.io/rest/accounts",
+                "https://genshinpromodb-33a4.restdb.io/rest/accounts",
                 settings
               )
                 .then((response) => response.json())
                 .then((data) => {
                   console.log(data);
-                  createtier(); // CALL THE FUNCTION TO CREATE TIER (NEW USERS SET TIER TO BRONZE BY DEFAULT)
+                  createtier();
+                  createQuiz(); // CALL THE FUNCTION TO CREATE TIER (NEW USERS SET TIER TO BRONZE BY DEFAULT)
                   window.alert("Account created successfully!");
                 });
             }
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create a tier for the user in the tiersystem database
       function createtier() {
-        let jsondata = {
+        let createAccTier = {
           email: Email,
           tier: "Bronze",
           totalpurchases: 0,
@@ -108,9 +109,30 @@ document.addEventListener("DOMContentLoaded", function () {
             "x-apikey": APIKEY,
             "Cache-Control": "no-cache",
           },
-          body: JSON.stringify(jsondata),
+          body: JSON.stringify(createAccTier),
         };
-        fetch("https://assignment2fed-f162.restdb.io/rest/tiersystem", settings)
+        fetch("https://genshinpromodb-33a4.restdb.io/rest/tiersystem", settings)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
+
+      function createQuiz() {
+        let createAccQuiz = {
+          email: Email,
+          quizdone: "No",
+        };
+        let settings = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": APIKEY,
+            "Cache-Control": "no-cache",
+          },
+          body: JSON.stringify(createAccQuiz),
+        };
+        fetch("https://genshinpromodb-33a4.restdb.io/rest/quiz", settings)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -120,8 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* LOGIN FUNCTION */
   document.getElementById("login-btn").addEventListener("click", function (e) {
-    var name = "";
-    var email = ""
     var checkiflogged = false;
     // Prevent default action of the button
     e.preventDefault();
@@ -132,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Uses input to check if email and password matches
     // if so then it will log in and grab their details
     fetch(
-      `https://assignment2fed-f162.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
+      `https://genshinpromodb-33a4.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
       {
         method: "GET",
         headers: {
@@ -144,17 +164,19 @@ document.addEventListener("DOMContentLoaded", function () {
     )
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         if (response.length > 0) {
           console.log(response);
 
+          // Creates a global id variable to track account id
+          sessionStorage.setItem("id", response[0]._id);
+          console.log(sessionStorage.getItem("id"));
+
           // Creates a global name variable to track account name
-          name = response[0].name;
-          sessionStorage.setItem("name", name);
+          sessionStorage.setItem("name", response[0].name);
+          console.log(sessionStorage.getItem("name"));
 
           //Creates a global email variable to track account email
-          email = response[0].email;
-          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("email", response[0].email);
 
           // Creates a global checkiflogged variable to track if user is logged in
           checkiflogged = true;
@@ -169,4 +191,3 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
-

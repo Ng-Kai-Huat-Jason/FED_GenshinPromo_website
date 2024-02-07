@@ -1,5 +1,6 @@
 // Check if quiz is done
-var quizDone = sessionStorage.getItem("ifPlayed");
+var quizDone = sessionStorage.getItem("quizdone");
+console.log(quizDone);
 
 // Event listener for the 'load' event
 window.addEventListener("load", function () {
@@ -13,7 +14,7 @@ window.addEventListener("load", function () {
       document.getElementById("acc_name").textContent = "Account: " + name;
       getMemberTier();
 
-      if (quizDone == "true") {
+      if (quizDone == "Yes") {
         window.alert(
           "You have done our quiz, your purchase will be discounted by 10%!"
         );
@@ -42,7 +43,7 @@ window.addEventListener("load", function () {
     let email = sessionStorage.getItem("email");
 
     fetch(
-      `https://assignment2fed-f162.restdb.io/rest/tiersystem?q={"email":"${email}"}`,
+      `https://genshinpromodb-33a4.restdb.io/rest/tiersystem?q={"email":"${email}"}`,
       {
         method: "GET",
         headers: {
@@ -213,13 +214,18 @@ function reloadCard() {
   }
 
   // Apply 10% discount for quiz completion
-  if (quizDone === "true") {
+  if (quizDone === "Yes") {
     totalPrice *= 0.9;
+  }
+
+  if (totalPrice < 0) {
+    totalPrice = 0;
   }
 
   // Display total and quantity
   total.innerHTML = "Total: $" + totalPrice.toFixed(2);
   quantity.innerText = count;
+  sessionStorage.setItem("totalprice", totalPrice);
 }
 
 // Allow changing quantity of items in cart
@@ -234,22 +240,32 @@ function changeQuantity(key, quantity) {
 }
 
 /* CHECKOUT FUNCTION */
-const APIKEY = "659f75533ff19f5320c89e7b";
+const APIKEY = "65c359a4c34784f7ca1877d9";
 
 document.getElementById("checkout-btn").addEventListener("click", function (e) {
   // Prevent default action of the button
   e.preventDefault();
-  if (listCards.length == 0) {
+
+  let price = parseFloat(sessionStorage.getItem("totalprice"));
+  let formattedPrice = price.toFixed(2);
+  console.log(formattedPrice); 
+
+  if (listCards.length == 0 || listCards == null || formattedPrice == 0) {
     window.alert("Your cart is empty!");
     return;
   } else {
+    let name = sessionStorage.getItem("name");
+
+
+    console.log(name);
     // Grab each item in the cart and send to database with name of customer
     listCards.forEach((item) => {
-      let jsondata = {
-        name: sessionStorage.getItem("name"),
+
+      let updateOrder = {
+        name: name,
         productname: item.name,
         quantity: item.quantity,
-        totalcost: item.price,
+        totalcost: formattedPrice,
       };
 
       let settings = {
@@ -259,10 +275,10 @@ document.getElementById("checkout-btn").addEventListener("click", function (e) {
           "x-apikey": APIKEY,
           "Cache-Control": "no-cache",
         },
-        body: JSON.stringify(jsondata),
+        body: JSON.stringify(updateOrder),
       };
-      console.log(jsondata);
-      fetch("https://assignment2fed-f162.restdb.io/rest/orders", settings)
+      console.log(updateOrder);
+      fetch("https://genshinpromodb-33a4.restdb.io/rest/orders", settings)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -295,7 +311,7 @@ function UpdateMember() {
     membertier = "Silver";
   }
 
-  let jsondata = {
+  let updateMember = {
     email: email,
     tier: membertier,
     totalpurchases: totalpurchased,
@@ -317,9 +333,9 @@ function UpdateMember() {
   sessionStorage.setItem("totalpurchases", totalpurchased); // SETS THE TOTAL PURCHASES TO SESSION STORAGE
 
   console.log(id); // LOG TO CHECK
-  console.log(jsondata); // LOG TO CHECK
+  console.log(updateMember); // LOG TO CHECK
 
-  fetch(`https://assignment2fed-f162.restdb.io/rest/tiersystem/${id}`, {
+  fetch(`https://genshinpromodb-33a4.restdb.io/rest/tiersystem/${id}`, {
     // CHANGE TO YOUR URL
     method: "PUT",
     headers: {
@@ -327,7 +343,7 @@ function UpdateMember() {
       "x-apikey": APIKEY,
       "Cache-Control": "no-cache",
     },
-    body: JSON.stringify(jsondata),
+    body: JSON.stringify(updateMember),
   })
     .then((res) => res.json())
     .then((response) => {

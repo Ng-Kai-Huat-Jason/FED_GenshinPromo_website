@@ -1,3 +1,4 @@
+
 const questions = [
   {
     question: "What is Hutao's gender?",
@@ -97,16 +98,16 @@ const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
-var ifPlayed = false;
 
 // Check if logged in and checked if account has played before for current session
 function checker() {
   if (sessionStorage.getItem("checkiflogged") == "true") {
-    if (sessionStorage.getItem("ifPlayed") == "true") {
+    GrabQuizDone();
+    if (sessionStorage.getItem("quizdone") == "Yes") {
       window.alert("You have already played the quiz!");
       questionElement.innerHTML = "You have already played the quiz!";
       document.getElementById("account").innerHTML =
-      "Account: " + sessionStorage.getItem("name");
+        "Account: " + sessionStorage.getItem("name");
       answerButtons.style.display = "none";
       nextButton.style.display = "none";
     } else {
@@ -127,10 +128,10 @@ function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
-  
+
   // Shuffle the array of questions
   const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-  
+
   // Take the first 5 questions
   const selectedQuestions = shuffledQuestions.slice(0, 5);
 
@@ -192,12 +193,7 @@ function showScore() {
   resetState();
   questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
   nextButton.innerHTML = " Quiz Completed!";
-
-
-  ifPlayed = true;
-  sessionStorage.setItem("ifPlayed", ifPlayed);
-
-
+  updateQuizDone();
   nextButton.style.display = "block";
   nextButton.disabled = true;
   nextButton.style.cursor = "not-allowed";
@@ -215,7 +211,70 @@ function handleNextButton() {
 nextButton.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     handleNextButton();
-  } 
+  }
 });
+
+const APIKEY = "65c359a4c34784f7ca1877d9"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+
+function updateQuizDone() {
+  // Update the account to show that the user has completed the quiz
+  let email = sessionStorage.getItem("email");
+  let id = sessionStorage.getItem("quiz_id");
+  console.log(id);
+
+  sessionStorage.setItem("quizdone", "Yes");
+  console.log(sessionStorage.getItem("quizdone"));
+
+  let updateQuizDone = {
+    email: email,
+    quizdone: "Yes",
+  };
+
+  console.log(updateQuizDone); // LOG TO CHECK
+
+  fetch(`https://genshinpromodb-33a4.restdb.io/rest/quiz/${id}`, {
+    // CHANGE TO YOUR URL
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": APIKEY,
+      "Cache-Control": "no-cache",
+    },
+    body: JSON.stringify(updateQuizDone),
+  })
+    .then((res) => res.json())
+    .then((response) => {
+      console.log("Quiz Done is Updated", response);
+    })
+    .catch((error) => {
+      console.error("Quiz Done cant update :", error);
+    });
+}
+
+function GrabQuizDone() {
+  let email = sessionStorage.getItem("email");
+  fetch(
+    `https://genshinpromodb-33a4.restdb.io/rest/quiz?q={"email":"${email}"}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": APIKEY,
+        "Cache-Control": "no-cache",
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(response);
+      let id = response[0]._id;
+      let quizdone = response[0].quizdone;
+      sessionStorage.setItem("quiz_id", id);
+      sessionStorage.setItem("quizdone", quizdone);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 
 checker();

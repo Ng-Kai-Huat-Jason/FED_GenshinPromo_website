@@ -2,7 +2,8 @@
 GenshinPromo is a collaborative work between MiHoYo and our company to promote official "Genshin Impact" branded merchandise as well as the "Genshin Impact" videogame to potential returning players and new players.
  
 ## Design Process
-This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop
+This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop.
+
 
 ## Company Objectives:
 
@@ -31,6 +32,9 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 - Feature 6: Free Reward Page contains a quiz which provides a discount to logged in users after completion.
 - Feature 7: Users are initiated at Bronze tier upon account creation and can advance to Silver after 5 checkouts or Gold after 10 checkouts in total. Silver tier offers a $5 discount, while Gold tier provides a $10 discount.
 
+## Wireframe & Video Link
+- [Wireframe Link](https://xd.adobe.com/view/fa41b681-5a3d-4264-8ca2-7ee068395d03-af12/)
+- [Video Demo](https://drive.google.com/file/d/1wCEsWRCG7IbrVyfCfRt2HEUQlJSkP1z4/view?usp=drive_link)
 
 ## Technologies Used
 - [Visual Studio Code Software](https://code.visualstudio.com/)
@@ -43,11 +47,16 @@ From a user's standpoint, we aim to create an enjoyable experience by:
     - This project uses CSS to style the website aesthetics.
 - [RestDB](https://restdb.io/)
     - This project uses RestDB.io database to store information for the account , tier and product system.
+- [AdobeXD](https://adobexdplatform.com/)
+    - This project uses AdobeXD for it's wireframe.
 
-
+## WorkFlow
+   As this project is done by me and my partner, we have decided to incorporated the use of branches for our work. This will allow us to check what we have done before merging it to the main branch and also    
+   prevent errors in case of multiple merges.  
 
 ## Testing
    DISCLAIMER: PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
+   IF YOU RECEIVE A CORS ERROR IN THE CONSOLE , IT MEANS THE DATABASE HAS REACHED ITS FETCH LIMIT AS WE ARE USING A FREE DATABASE<br/>
    TEST ACCOUNT email is test@gmail.com and password is 111 or testers can make their own.
     
     Navigation Testing
