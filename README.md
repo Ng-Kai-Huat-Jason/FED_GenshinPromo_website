@@ -52,6 +52,7 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 ## Testing
    DISCLAIMER: PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
+   IF YOU RECEIVE A CORS ERROR IN THE CONSOLE , IT MEANS THE DATABASE HAS REACHED ITS FETCH LIMIT AS WE ARE USING A FREE DATABASE<br/>
    TEST ACCOUNT email is test@gmail.com and password is 111 or testers can make their own.
     
     Navigation Testing
