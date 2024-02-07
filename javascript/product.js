@@ -245,15 +245,17 @@ const APIKEY = "65c27ad7ef3f39e1405278d3";
 document.getElementById("checkout-btn").addEventListener("click", function (e) {
   // Prevent default action of the button
   e.preventDefault();
-  if (listCards.length == 0) {
+
+  let price = parseFloat(sessionStorage.getItem("totalprice"));
+  let formattedPrice = price.toFixed(2);
+  console.log(formattedPrice); 
+
+  if (listCards.length == 0 || listCards == null || formattedPrice == 0) {
     window.alert("Your cart is empty!");
     return;
   } else {
     let name = sessionStorage.getItem("name");
 
-    let price = parseFloat(sessionStorage.getItem("totalprice"));
-    let formattedPrice = price.toFixed(2);
-    console.log(formattedPrice); 
 
     console.log(name);
     // Grab each item in the cart and send to database with name of customer
