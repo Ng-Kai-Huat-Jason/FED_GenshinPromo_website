@@ -35,6 +35,7 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 ## Wireframe & Video Link
 - [Wireframe Link](https://xd.adobe.com/view/fa41b681-5a3d-4264-8ca2-7ee068395d03-af12/)
 - [Video Demo](https://drive.google.com/file/d/1wCEsWRCG7IbrVyfCfRt2HEUQlJSkP1z4/view?usp=drive_link)
+- [Github Repositry](https://github.com/Ng-Kai-Huat-Jason/FED_GenshinPromo_website.git)
 
 ## Technologies Used
 - [Visual Studio Code Software](https://code.visualstudio.com/)
