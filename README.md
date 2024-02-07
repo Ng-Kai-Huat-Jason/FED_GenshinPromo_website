@@ -2,7 +2,8 @@
 GenshinPromo is a collaborative work between MiHoYo and our company to promote official "Genshin Impact" branded merchandise as well as the "Genshin Impact" videogame to potential returning players and new players.
  
 ## Design Process
-This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop
+This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop.
+
 
 ## Company Objectives:
 
@@ -45,14 +46,25 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 - [CSS](https://en.wikipedia.org/wiki/CSS)
     - This project uses CSS to style the website aesthetics.
 - [RestDB](https://restdb.io/)
-    - This project uses RestDB.io database to store information for the account , tier and product system.
+    - This project uses RestDB.io database to store information for accounts, its respective tier and the product system.
 - [AdobeXD](https://adobexdplatform.com/)
     - This project uses AdobeXD for it's wireframe.
 
+## WorkFlow
+    As this project is done by multiple individuals, branches are incorporated to serve as compartmentalisation of work. Therefore as much as possible, no direct commits to main are allowed.
+    This serves as a failsafe measure and filter to prevent and catch errors before merging into main, thus adding a layer of security to our work. It additional serves to track and maintain accountability for all code committed.\
+
+    For any changes to the code it will follow this structure:
+    1. Commit changes to branch
+    2. Merge branch with main after approval through pull request
+
+    Before any changes are made to the code, one should update their branch to the latest version from main by:
+    1. Merge main with branch through pull request
+    2. Continue to make commits to branch only
 
 ## Testing
-   DISCLAIMER: PAGES NEED TIME TO LOAD OR COMPLETE THEIR FUNCTIONS<br/>
-   IF YOU RECEIVE A CORS ERROR IN THE CONSOLE , IT MEANS THE DATABASE HAS REACHED ITS FETCH LIMIT AS WE ARE USING A FREE DATABASE<br/>
+   DISCLAIMER: Pages require adequate time to load its functions or capabilities<br/>
+   Note: If you recieve a cors error in the console log, this is due to the database reaching its fetch limit as there are restrictions for the free RestDB account <br/>
    TEST ACCOUNT email is test@gmail.com and password is 111 or testers can make their own.
     
     Navigation Testing
