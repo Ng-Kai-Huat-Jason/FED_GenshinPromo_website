@@ -43,7 +43,7 @@ window.addEventListener("load", function () {
     let email = sessionStorage.getItem("email");
 
     fetch(
-      `https://fedassignment2-62ed.restdb.io/rest/tiersystem?q={"email":"${email}"}`,
+      `https://genshinpromodb-33a4.restdb.io/rest/tiersystem?q={"email":"${email}"}`,
       {
         method: "GET",
         headers: {
@@ -240,7 +240,7 @@ function changeQuantity(key, quantity) {
 }
 
 /* CHECKOUT FUNCTION */
-const APIKEY = "65c27ad7ef3f39e1405278d3";
+const APIKEY = "65c359a4c34784f7ca1877d9";
 
 document.getElementById("checkout-btn").addEventListener("click", function (e) {
   // Prevent default action of the button
@@ -278,7 +278,7 @@ document.getElementById("checkout-btn").addEventListener("click", function (e) {
         body: JSON.stringify(updateOrder),
       };
       console.log(updateOrder);
-      fetch("https://fedassignment2-62ed.restdb.io/rest/orders", settings)
+      fetch("https://genshinpromodb-33a4.restdb.io/rest/orders", settings)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -335,7 +335,7 @@ function UpdateMember() {
   console.log(id); // LOG TO CHECK
   console.log(updateMember); // LOG TO CHECK
 
-  fetch(`https://fedassignment2-62ed.restdb.io/rest/tiersystem/${id}`, {
+  fetch(`https://genshinpromodb-33a4.restdb.io/rest/tiersystem/${id}`, {
     // CHANGE TO YOUR URL
     method: "PUT",
     headers: {

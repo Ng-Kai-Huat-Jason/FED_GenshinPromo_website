@@ -214,7 +214,7 @@ nextButton.addEventListener("click", () => {
   }
 });
 
-const APIKEY = "65c27ad7ef3f39e1405278d3"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+const APIKEY = "65c359a4c34784f7ca1877d9"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
 
 function updateQuizDone() {
   // Update the account to show that the user has completed the quiz
@@ -232,7 +232,7 @@ function updateQuizDone() {
 
   console.log(updateQuizDone); // LOG TO CHECK
 
-  fetch(`https://fedassignment2-62ed.restdb.io/rest/quiz/${id}`, {
+  fetch(`https://genshinpromodb-33a4.restdb.io/rest/quiz/${id}`, {
     // CHANGE TO YOUR URL
     method: "PATCH",
     headers: {
@@ -254,7 +254,7 @@ function updateQuizDone() {
 function GrabQuizDone() {
   let email = sessionStorage.getItem("email");
   fetch(
-    `https://fedassignment2-62ed.restdb.io/rest/quiz?q={"email":"${email}"}`,
+    `https://genshinpromodb-33a4.restdb.io/rest/quiz?q={"email":"${email}"}`,
     {
       method: "GET",
       headers: {

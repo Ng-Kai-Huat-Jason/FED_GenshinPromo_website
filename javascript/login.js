@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", () => {
 
 /* SEND SIGN UP FUNCTION*/
 document.addEventListener("DOMContentLoaded", function () {
-  const APIKEY = "65c27ad7ef3f39e1405278d3"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
+  const APIKEY = "65c359a4c34784f7ca1877d9"; // IMPORTANT CHANGE THIS TO YOUR OWN KEY
 
   document
     .getElementById("register-btn")
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       function createAcc() {
         fetch(
-          `https://fedassignment2-62ed.restdb.io/rest/accounts?q={"email":"${Email}"}`,
+          `https://genshinpromodb-33a4.restdb.io/rest/accounts?q={"email":"${Email}"}`,
           {
             method: "GET",
             headers: {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
               };
               fetch(
-                "https://fedassignment2-62ed.restdb.io/rest/accounts",
+                "https://genshinpromodb-33a4.restdb.io/rest/accounts",
                 settings
               )
                 .then((response) => response.json())
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           body: JSON.stringify(createAccTier),
         };
-        fetch("https://fedassignment2-62ed.restdb.io/rest/tiersystem", settings)
+        fetch("https://genshinpromodb-33a4.restdb.io/rest/tiersystem", settings)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           body: JSON.stringify(createAccQuiz),
         };
-        fetch("https://fedassignment2-62ed.restdb.io/rest/quiz", settings)
+        fetch("https://genshinpromodb-33a4.restdb.io/rest/quiz", settings)
           .then((response) => response.json())
           .then((data) => {
             console.log(data);
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Uses input to check if email and password matches
     // if so then it will log in and grab their details
     fetch(
-      `https://fedassignment2-62ed.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
+      `https://genshinpromodb-33a4.restdb.io/rest/accounts?q={"email":"${Email}","password":"${Password}"}`,
       {
         method: "GET",
         headers: {
