@@ -52,7 +52,15 @@ From a user's standpoint, we aim to create an enjoyable experience by:
 
 ## WorkFlow
     As this project is done by multiple individuals, branches are incorporated to serve as compartmentalisation of work. Therefore as much as possible, no direct commits to main are allowed.
-    This serves as a failsafe measure and filter to prevent and catch errors before merging into main, thus adding a layer of security to our work. It additional serves to track and maintain accountability for all code committed.
+    This serves as a failsafe measure and filter to prevent and catch errors before merging into main, thus adding a layer of security to our work. It additional serves to track and maintain accountability for all code committed.\
+
+    For any changes to the code it will follow this structure:
+    1. Commit changes to branch
+    2. Merge branch with main after approval through pull request
+
+    Before any changes are made to the code, one should update their branch to the latest version from main by:
+    1. Merge main with branch through pull request
+    2. Continue to make commits to branch only
 
 ## Testing
    DISCLAIMER: Pages require adequate time to load its functions or capabilities<br/>
