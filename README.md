@@ -1,5 +1,6 @@
 # GenshinPromo
 GenshinPromo is a collaborative work between MiHoYo and our company to promote official "Genshin Impact" branded merchandise as well as the "Genshin Impact" videogame to potential returning players and new players.
+Link to Website Here:[GenshinPromo](https://ng-kai-huat-jason.github.io/FED_GenshinPromo_website/)
  
 ## Design Process
 This website is designed to provide the playerbase a seamless and efficient method to purchase "Genshin Impact" merchandise, whilst boosting customer engagement with short quizzes that provide complimentary discounts to the merchandise shop.
